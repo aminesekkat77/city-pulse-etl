@@ -3,9 +3,11 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 
-RAW_PATH = Path("raw_data/weather")
-OUT_DIR = Path("transform/output/weather")
+BASE_DIR = Path(__file__).resolve().parents[1]  # racine du projet
+RAW_PATH = BASE_DIR / "raw_data" / "weather"
+OUT_DIR = BASE_DIR / "transform" / "output" / "weather"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+
 
 def transform_weather_file(file_path: Path, city_expected: str):
     with open(file_path, "r", encoding="utf-8") as f:

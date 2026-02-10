@@ -3,9 +3,11 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 
-RAW_PATH = Path("raw_data/bikes")
-OUT_DIR = Path("transform/output/bikes")
+BASE_DIR = Path(__file__).resolve().parents[1]
+RAW_PATH = BASE_DIR / "raw_data" / "bikes"
+OUT_DIR = BASE_DIR / "transform" / "output" / "bikes"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+
 
 def transform_bike_file(file_path: Path):
     with open(file_path, "r", encoding="utf-8") as f:

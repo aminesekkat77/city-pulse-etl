@@ -4,7 +4,7 @@ INSERT INTO city_pulse_hourly
 WITH bikes_hourly AS (
   SELECT
     LOWER(city) AS city,
-    date_trunc('hour', datetime) AS date_hour,
+    date_trunc('hour', datetime::timestamp) AS date_hour,
     SUM(available_bikes) AS total_available_bikes,
     SUM(bike_stands) AS total_stands,
     COUNT(DISTINCT station_id) AS stations_count,
@@ -15,7 +15,7 @@ WITH bikes_hourly AS (
 weather_hourly AS (
   SELECT
     LOWER(city) AS city,
-    date_trunc('hour', datetime) AS date_hour,
+    date_trunc('hour', datetime::timestamp) AS date_hour,
     AVG(temp) AS avg_temp,
     AVG(humidity) AS avg_humidity,
     AVG(wind_speed) AS avg_wind_speed,

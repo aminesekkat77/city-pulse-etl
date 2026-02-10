@@ -1,0 +1,30 @@
+[2026-02-10T13:13:36.769+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_city_pulse.create_tables manual__2026-02-10T13:11:32.007156+00:00 [queued]>
+[2026-02-10T13:13:36.778+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_city_pulse.create_tables manual__2026-02-10T13:11:32.007156+00:00 [queued]>
+[2026-02-10T13:13:36.779+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2026-02-10T13:13:36.791+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): create_tables> on 2026-02-10 13:11:32.007156+00:00
+[2026-02-10T13:13:36.797+0000] {standard_task_runner.py:60} INFO - Started process 301 to run task
+[2026-02-10T13:13:36.800+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_city_pulse', 'create_tables', 'manual__2026-02-10T13:11:32.007156+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/etl_city_pulse.py', '--cfg-path', '/tmp/tmp0mh8fzzy']
+[2026-02-10T13:13:36.801+0000] {standard_task_runner.py:88} INFO - Job 35: Subtask create_tables
+[2026-02-10T13:13:36.850+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_city_pulse.create_tables manual__2026-02-10T13:11:32.007156+00:00 [running]> on host 4a7f0c581345
+[2026-02-10T13:13:36.920+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='hbibi' AIRFLOW_CTX_DAG_ID='etl_city_pulse' AIRFLOW_CTX_TASK_ID='create_tables' AIRFLOW_CTX_EXECUTION_DATE='2026-02-10T13:11:32.007156+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-10T13:11:32.007156+00:00'
+[2026-02-10T13:13:36.922+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-10T13:13:36.923+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/airflow/load/create_tables.py']
+[2026-02-10T13:13:36.932+0000] {subprocess.py:86} INFO - Output:
+[2026-02-10T13:13:37.162+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-02-10T13:13:37.163+0000] {subprocess.py:93} INFO -   File "/opt/airflow/load/create_tables.py", line 28, in <module>
+[2026-02-10T13:13:37.163+0000] {subprocess.py:93} INFO -     main()
+[2026-02-10T13:13:37.164+0000] {subprocess.py:93} INFO -   File "/opt/airflow/load/create_tables.py", line 19, in main
+[2026-02-10T13:13:37.165+0000] {subprocess.py:93} INFO -     with open(SQL_FILE, "r", encoding="utf-8") as f:
+[2026-02-10T13:13:37.165+0000] {subprocess.py:93} INFO - FileNotFoundError: [Errno 2] No such file or directory: 'load/create_tables.sql'
+[2026-02-10T13:13:37.188+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-02-10T13:13:37.202+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-02-10T13:13:37.205+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=etl_city_pulse, task_id=create_tables, execution_date=20260210T131132, start_date=20260210T131336, end_date=20260210T131337
+[2026-02-10T13:13:37.220+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 35 for task create_tables (Bash command failed. The command returned a non-zero exit code 1.; 301)
+[2026-02-10T13:13:37.255+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-02-10T13:13:37.279+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

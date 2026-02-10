@@ -1,0 +1,17 @@
+[2026-02-10T13:15:34.619+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_city_pulse.transform_weather manual__2026-02-10T13:15:32.518639+00:00 [queued]>
+[2026-02-10T13:15:34.629+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_city_pulse.transform_weather manual__2026-02-10T13:15:32.518639+00:00 [queued]>
+[2026-02-10T13:15:34.630+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-02-10T13:15:34.645+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): transform_weather> on 2026-02-10 13:15:32.518639+00:00
+[2026-02-10T13:15:34.651+0000] {standard_task_runner.py:60} INFO - Started process 390 to run task
+[2026-02-10T13:15:34.654+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_city_pulse', 'transform_weather', 'manual__2026-02-10T13:15:32.518639+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/etl_city_pulse.py', '--cfg-path', '/tmp/tmpx1k2ix6y']
+[2026-02-10T13:15:34.656+0000] {standard_task_runner.py:88} INFO - Job 45: Subtask transform_weather
+[2026-02-10T13:15:34.704+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_city_pulse.transform_weather manual__2026-02-10T13:15:32.518639+00:00 [running]> on host 4a7f0c581345
+[2026-02-10T13:15:34.774+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='hbibi' AIRFLOW_CTX_DAG_ID='etl_city_pulse' AIRFLOW_CTX_TASK_ID='transform_weather' AIRFLOW_CTX_EXECUTION_DATE='2026-02-10T13:15:32.518639+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-10T13:15:32.518639+00:00'
+[2026-02-10T13:15:34.775+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-10T13:15:34.777+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/airflow/transform/transform_weather.py']
+[2026-02-10T13:15:34.787+0000] {subprocess.py:86} INFO - Output:
+[2026-02-10T13:15:35.243+0000] {subprocess.py:93} INFO - [OK] weather_clean.csv créé : /opt/airflow/transform/output/weather/weather_clean.csv (rows=2)
+[2026-02-10T13:15:35.306+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-02-10T13:15:35.333+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_city_pulse, task_id=transform_weather, execution_date=20260210T131532, start_date=20260210T131534, end_date=20260210T131535
+[2026-02-10T13:15:35.390+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-10T13:15:35.418+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

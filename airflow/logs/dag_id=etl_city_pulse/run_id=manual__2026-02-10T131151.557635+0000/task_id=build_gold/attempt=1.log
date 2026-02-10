@@ -1,0 +1,30 @@
+[2026-02-10T13:15:34.620+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_city_pulse.build_gold manual__2026-02-10T13:11:51.557635+00:00 [queued]>
+[2026-02-10T13:15:34.629+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_city_pulse.build_gold manual__2026-02-10T13:11:51.557635+00:00 [queued]>
+[2026-02-10T13:15:34.630+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-02-10T13:15:34.643+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): build_gold> on 2026-02-10 13:11:51.557635+00:00
+[2026-02-10T13:15:34.648+0000] {standard_task_runner.py:60} INFO - Started process 389 to run task
+[2026-02-10T13:15:34.652+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_city_pulse', 'build_gold', 'manual__2026-02-10T13:11:51.557635+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/etl_city_pulse.py', '--cfg-path', '/tmp/tmpp5yf85mo']
+[2026-02-10T13:15:34.653+0000] {standard_task_runner.py:88} INFO - Job 46: Subtask build_gold
+[2026-02-10T13:15:34.703+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_city_pulse.build_gold manual__2026-02-10T13:11:51.557635+00:00 [running]> on host 4a7f0c581345
+[2026-02-10T13:15:34.775+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='hbibi' AIRFLOW_CTX_DAG_ID='etl_city_pulse' AIRFLOW_CTX_TASK_ID='build_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-02-10T13:11:51.557635+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-10T13:11:51.557635+00:00'
+[2026-02-10T13:15:34.776+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-10T13:15:34.777+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/airflow/load/build_gold.py']
+[2026-02-10T13:15:34.787+0000] {subprocess.py:86} INFO - Output:
+[2026-02-10T13:15:35.053+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-02-10T13:15:35.055+0000] {subprocess.py:93} INFO -   File "/opt/airflow/load/build_gold.py", line 26, in <module>
+[2026-02-10T13:15:35.055+0000] {subprocess.py:93} INFO -     main()
+[2026-02-10T13:15:35.056+0000] {subprocess.py:93} INFO -   File "/opt/airflow/load/build_gold.py", line 19, in main
+[2026-02-10T13:15:35.056+0000] {subprocess.py:93} INFO -     with open(SQL_FILE, "r", encoding="utf-8") as f:
+[2026-02-10T13:15:35.057+0000] {subprocess.py:93} INFO - FileNotFoundError: [Errno 2] No such file or directory: 'load/build_gold.sql'
+[2026-02-10T13:15:35.078+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-02-10T13:15:35.089+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-02-10T13:15:35.093+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_city_pulse, task_id=build_gold, execution_date=20260210T131151, start_date=20260210T131534, end_date=20260210T131535
+[2026-02-10T13:15:35.112+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 46 for task build_gold (Bash command failed. The command returned a non-zero exit code 1.; 389)
+[2026-02-10T13:15:35.147+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-02-10T13:15:35.167+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

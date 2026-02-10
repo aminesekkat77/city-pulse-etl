@@ -1,0 +1,17 @@
+[2026-02-10T13:21:05.788+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_city_pulse.load_to_postgres manual__2026-02-10T13:11:51.557635+00:00 [queued]>
+[2026-02-10T13:21:05.799+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_city_pulse.load_to_postgres manual__2026-02-10T13:11:51.557635+00:00 [queued]>
+[2026-02-10T13:21:05.799+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 3
+[2026-02-10T13:21:05.817+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): load_to_postgres> on 2026-02-10 13:11:51.557635+00:00
+[2026-02-10T13:21:05.824+0000] {standard_task_runner.py:60} INFO - Started process 619 to run task
+[2026-02-10T13:21:05.827+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_city_pulse', 'load_to_***', 'manual__2026-02-10T13:11:51.557635+00:00', '--job-id', '66', '--raw', '--subdir', 'DAGS_FOLDER/etl_city_pulse.py', '--cfg-path', '/tmp/tmp1gewmjtf']
+[2026-02-10T13:21:05.829+0000] {standard_task_runner.py:88} INFO - Job 66: Subtask load_to_***
+[2026-02-10T13:21:05.881+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_city_pulse.load_to_postgres manual__2026-02-10T13:11:51.557635+00:00 [running]> on host 4a7f0c581345
+[2026-02-10T13:21:05.958+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='hbibi' AIRFLOW_CTX_DAG_ID='etl_city_pulse' AIRFLOW_CTX_TASK_ID='load_to_***' AIRFLOW_CTX_EXECUTION_DATE='2026-02-10T13:11:51.557635+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-10T13:11:51.557635+00:00'
+[2026-02-10T13:21:05.959+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-10T13:21:05.961+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/airflow/load/load_to_***.py']
+[2026-02-10T13:21:05.970+0000] {subprocess.py:86} INFO - Output:
+[2026-02-10T13:21:06.522+0000] {subprocess.py:93} INFO - [OK] Load terminé : bikes_analytics + weather_analytics (bikes=866, weather=2)
+[2026-02-10T13:21:06.598+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-02-10T13:21:06.623+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_city_pulse, task_id=load_to_***, execution_date=20260210T131151, start_date=20260210T132105, end_date=20260210T132106
+[2026-02-10T13:21:06.644+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-10T13:21:06.664+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

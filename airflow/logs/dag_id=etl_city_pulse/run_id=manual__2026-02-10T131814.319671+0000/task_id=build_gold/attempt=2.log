@@ -1,0 +1,16 @@
+[2026-02-10T13:20:21.772+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_city_pulse.build_gold manual__2026-02-10T13:18:14.319671+00:00 [queued]>
+[2026-02-10T13:20:21.779+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_city_pulse.build_gold manual__2026-02-10T13:18:14.319671+00:00 [queued]>
+[2026-02-10T13:20:21.780+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2026-02-10T13:20:21.792+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): build_gold> on 2026-02-10 13:18:14.319671+00:00
+[2026-02-10T13:20:21.797+0000] {standard_task_runner.py:60} INFO - Started process 568 to run task
+[2026-02-10T13:20:21.800+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_city_pulse', 'build_gold', 'manual__2026-02-10T13:18:14.319671+00:00', '--job-id', '60', '--raw', '--subdir', 'DAGS_FOLDER/etl_city_pulse.py', '--cfg-path', '/tmp/tmppi11m79v']
+[2026-02-10T13:20:21.802+0000] {standard_task_runner.py:88} INFO - Job 60: Subtask build_gold
+[2026-02-10T13:20:21.845+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_city_pulse.build_gold manual__2026-02-10T13:18:14.319671+00:00 [running]> on host 4a7f0c581345
+[2026-02-10T13:20:21.903+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='hbibi' AIRFLOW_CTX_DAG_ID='etl_city_pulse' AIRFLOW_CTX_TASK_ID='build_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-02-10T13:18:14.319671+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-10T13:18:14.319671+00:00'
+[2026-02-10T13:20:21.905+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-10T13:20:21.906+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/airflow/load/build_gold.py']
+[2026-02-10T13:20:21.915+0000] {subprocess.py:86} INFO - Output:
+[2026-02-10T13:20:22.138+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-02-10T13:20:22.161+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_city_pulse, task_id=build_gold, execution_date=20260210T131814, start_date=20260210T132021, end_date=20260210T132022
+[2026-02-10T13:20:22.174+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-10T13:20:22.191+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
